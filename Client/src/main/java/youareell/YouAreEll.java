@@ -26,9 +26,10 @@ public class YouAreEll {
 
     public String putOrPost_ids(String name, String githubId) {
         for (Id id : this.idCtrl.getIds()) {
-            if (id.getGithubId().equals(githubId))
+            if (id.getGithubId().equals(githubId)) {
                 idCtrl.putId(name, githubId);
-            return new IdTextView(id).toString();
+                return new IdTextView(id).toString();
+            }
         }
         Id newId = new Id (name, githubId);
         idCtrl.postId(newId);

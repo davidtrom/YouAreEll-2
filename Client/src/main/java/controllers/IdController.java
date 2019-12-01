@@ -43,9 +43,10 @@ public class IdController {
 
     public Id postId(Id id) {
         try {
+            getIds();
             ObjectMapper mapper = new ObjectMapper();
             String idToPost = mapper.writeValueAsString(id);
-            String response = transCtrl.makeURLCall("/ids", "POST", idToPost);
+            transCtrl.makeURLCall("/ids", "POST", idToPost);
             getIds();
             return getIdByGitHubId(id.getGithubId());
 //            for (int i = 0; i < myIds.size(); i++) {
