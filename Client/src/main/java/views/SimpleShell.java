@@ -21,7 +21,7 @@ public class SimpleShell {
     }
     public static void main(String[] args) throws java.io.IOException {
 
-        YouAreEll webber = new YouAreEll(new MessageController(), new IdController());
+        YouAreEll webber = new YouAreEll();
         
         String commandLine;
         BufferedReader console = new BufferedReader
@@ -68,15 +68,22 @@ public class SimpleShell {
 
                 // ids
                 if (list.contains("ids")) {
-                    String results = webber.get_ids();
-                    SimpleShell.prettyPrint(results);
+
+                    if(commands.length == 1){
+                        System.out.println(webber.get_ids());
+                    }
+                    else if (commands.length == 3){
+
+                       String results =  webber.putOrPost_ids(commands[1], commands[2]);
+                        System.out.println(results);
+
+                    }
                     continue;
                 }
 
                 // messages
                 if (list.contains("messages")) {
-                    String results = webber.get_messages();
-                    SimpleShell.prettyPrint(results);
+                    System.out.println(webber.get_messages());
                     continue;
                 }
                 // you need to add a bunch more.
