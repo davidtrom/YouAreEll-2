@@ -20,12 +20,6 @@ public class YouAreEll {
         this.msgCtrl = new MessageController(transCtrl, idCtrl);
     }
 
-    public static void main(String[] args) {
-        // hmm: is this Dependency Injection?
-        YouAreEll urlhandler = new YouAreEll();
-
-    }
-
     public String get_ids()  {
         return new IdTextView().printIds(this.idCtrl.getIds());
     }

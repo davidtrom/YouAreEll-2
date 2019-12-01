@@ -47,10 +47,12 @@ public class IdController {
             String idToPost = mapper.writeValueAsString(id);
             String response = transCtrl.makeURLCall("/ids", "POST", idToPost);
             getIds();
-            for (int i = 0; i < myIds.size(); i++) {
-                 if(id.getGithubId().equals(myIds.get(i).getGithubId()));
-                return myIds.get(i);
-            }
+            return getIdByGitHubId(id.getGithubId());
+//            for (int i = 0; i < myIds.size(); i++) {
+//                if (id.getGithubId().equals(myIds.get(i).getGithubId())) {
+//                    return myIds.get(i);
+//                }
+
         } catch (JsonProcessingException e){
             e.printStackTrace();
         }

@@ -85,17 +85,15 @@ public class TransactionController {
 
     public String post(String mainurl, String jpayload) throws IOException {
         //Talking to the server over the internet
-        //Talking to the server over the internet
-        // System.out.println(content);
 
         HttpPost httpPost = new HttpPost(rootURL + mainurl);
         httpPost.setEntity(new StringEntity(jpayload));
         CloseableHttpResponse response2 = httpClient.execute(httpPost);
 
         try {
-            System.out.println(response2.getStatusLine());
+            //System.out.println(response2.getStatusLine());
             HttpEntity entity2 = response2.getEntity();
-            String result = new BufferedReader(new InputStreamReader((entity2.getContent())))
+            String result = new BufferedReader(new InputStreamReader(entity2.getContent()))
                     .lines().collect(Collectors.joining("\n"));
             // do something useful with the response body
             // and ensure it is fully consumed

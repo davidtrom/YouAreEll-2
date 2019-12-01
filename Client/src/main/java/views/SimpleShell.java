@@ -17,7 +17,7 @@ public class SimpleShell {
 
     public static void prettyPrint(String output) {
         // yep, make an effort to format things nicely, eh?
-        System.out.println(output);
+        //System.out.println(output);
     }
     public static void main(String[] args) throws java.io.IOException {
 
@@ -69,12 +69,14 @@ public class SimpleShell {
                 // ids
                 if (list.contains("ids")) {
 
-                    if(commands.length == 1){
-                        System.out.println(webber.get_ids());
+                    if(list.size() == 1){
+                        String results = webber.get_ids();
+                        System.out.println(results);
+
                     }
                     else if (commands.length == 3){
 
-                       String results =  webber.putOrPost_ids(commands[1], commands[2]);
+                       String results =  webber.putOrPost_ids(list.get(1), list.get(2));
                         System.out.println(results);
 
                     }
