@@ -5,6 +5,7 @@ import controllers.*;
 import models.Id;
 import models.Message;
 import views.IdTextView;
+import views.MessageTextView;
 
 public class YouAreEll {
     //Can be used an kind of an overlord controller.  And then simple shell won't have so much code.
@@ -37,7 +38,7 @@ public class YouAreEll {
     }
 
     public String get_messages() {
-        return "";
+        return new MessageTextView().printMessages(this.msgCtrl.getMessages());
     }
 }
 
